@@ -1,7 +1,9 @@
 npm init -y for package.json
 npm install express
 npm install mysql
-npm install dotenv store of our configuration database like password/username
-npm install nodemon --save-dev you don't have to restart server this will watch for us and loaded for us
+npm install dotenv = store of our configuration database like password/username
+npm install nodemon --save-dev = you don't have to restart server this will watch for us and loaded for us
 ///////////////////npm install -g nodemon --save-dev//////////////////////////////
-npm install cors make an api calls from frontend to backend
+npm install cors = make an api calls from frontend to backend
+
+Set-ExecutionPolicy Unrestricted if nodemon can't run
