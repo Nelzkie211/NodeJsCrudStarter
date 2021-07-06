@@ -1,11 +1,11 @@
 
 // get data when load page section
 
+
 document.addEventListener('DOMContentLoaded',function(event){
   fetch('http://localhost:5000/getAll')
   .then(response => response.json())
   .then(data => loadHTMLTable(data['data']));
-  ;
 },false);
 
 
@@ -46,6 +46,22 @@ document.querySelector('table tbody').addEventListener('click',function(event){
 })
 
 const updateBtn = document.querySelector('#update-row-btn');
+const searchBtn = document.querySelector('#search-btn');
+
+// search
+searchBtn.onclick = function(){
+  const searchValue = document.querySelector('#search-input').value;
+
+  if (searchValue === ""){
+    fetch('http://localhost:5000/getAll')
+    .then(response => response.json())
+    .then(data => loadHTMLTable(data['data']));
+  }else{
+    fetch('http://localhost:5000/search/'+ searchValue)
+    .then(response => response.json())
+    .then(data => loadHTMLTable(data['data']));
+  }
+}
 
 // delete row function section
 function deleteRowById(id){

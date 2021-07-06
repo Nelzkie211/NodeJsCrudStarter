@@ -156,8 +156,30 @@ class DbService {
         return false;
     }
 
-  }
 
+
+  }
+  // search section
+  async searchByName(name){
+
+    try {
+
+      const response = await new Promise((resolve, reject) =>{
+        const query = "SELECT * from node_crud  WHERE name = ?;";
+          connection.query(query, [name], (err, result) => {
+            if(err) reject(new Error(err.message));
+              resolve(result);
+          })
+      });
+      console.log(response);
+      return response;
+
+
+    } catch (error) {
+        console.log(error);
+    }
+
+  }
 
 }
 
